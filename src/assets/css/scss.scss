@@ -1,0 +1,104 @@
+// @include s-overflow;
+@mixin s-overflow() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+}
+
+// @include m-overflow(2);
+@mixin m-overflow($line) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+}
+
+// @include flex;   @include flex(column);
+@mixin flex($direction: row) {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: $direction;
+}
+
+// @mixin border-radius(10px)
+@mixin border-radius($radius) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
+// @include height(100%,10px);
+@mixin height($ratio, $px) {
+	height: calc(#{$ratio} - #{$px});
+}
+
+// @include width(100%,10px);
+@mixin width($ratio, $px) {
+	width: calc(#{$ratio} - #{$px});
+}
+// @include justify;
+@mixin justify {
+	text-align: justify;
+	text-justify: distribute-all-lines;
+	text-align-last: justify;
+	// &:after {
+	// 	display: inline-block;
+	// 	content: '';
+	// 	overflow: hidden;
+	// 	width: 100%;
+	// 	height: 0;
+	// }
+}
+
+/*滚动条样式*/
+::-webkit-scrollbar {
+	/*滚动条整体样式*/
+	width: 10px;
+	/*高宽分别对应横竖滚动条的尺寸*/
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	/*滚动条里面小方块*/
+	border-radius: 5px;
+	/* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+	background: #137771;
+}
+
+::-webkit-scrollbar-track {
+	/*滚动条里面轨道*/
+	/* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+	border-radius: 0;
+	background: #184a48;
+}
+
+
+//整体宽高
+$screenWidth: 4800px;
+$screenHeight: 1350px;
+// 导航高度
+$navHeight: 50px;
+//左右两侧大概宽度
+$moduleWidth: 400px;
+$moduleHeight: 1300px;
+
+
+
+
+
+//弹窗
+.zyj-dialog-header {
+	cursor: move;
+	position: relative;
+	.zyj-dialog-title {
+		color: #ffe0a7;
+	}
+	.zyj-dialog-close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+	}
+}
