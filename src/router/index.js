@@ -56,32 +56,32 @@ const router = new VueRouter({
 
 
 
-router.beforeEach((to, from, next) => {
-  if ($('#rightIframe').length || $('#leftIframe').length || $('#secondIframe').length) {
-    try {
-      var objLeft = document.getElementById('leftIframe')
-      objLeft.contentWindow.resafety_onclose && objLeft.contentWindow.resafety_onclose();
+// router.beforeEach((to, from, next) => {
+//   if ($('#rightIframe').length || $('#leftIframe').length || $('#secondIframe').length) {
+//     try {
+//       var objLeft = document.getElementById('leftIframe')
+//       objLeft.contentWindow.resafety_onclose && objLeft.contentWindow.resafety_onclose();
 
-      var objRight = document.getElementById('rightIframe')
-      objRight.contentWindow.resafety_onclose && objRight.contentWindow.resafety_onclose();
-    } catch (error) {
+//       var objRight = document.getElementById('rightIframe')
+//       objRight.contentWindow.resafety_onclose && objRight.contentWindow.resafety_onclose();
+//     } catch (error) {
 
-    }
-  }
-  $('.handleCreateIframeContainer').map((index, item) => {
-    try {
+//     }
+//   }
+//   $('.handleCreateIframeContainer').map((index, item) => {
+//     try {
 
-      var obj = document.getElementById($(item).attr('id'))
-      obj.contentWindow.resafety_onclose && obj.contentWindow.resafety_onclose();
-      obj.remove()
-    } catch (error) {
+//       var obj = document.getElementById($(item).attr('id'))
+//       obj.contentWindow.resafety_onclose && obj.contentWindow.resafety_onclose();
+//       obj.remove()
+//     } catch (error) {
 
-    }
-  })
-  setTimeout(() => {
-    next()
-  }, 200)
+//     }
+//   })
+//   setTimeout(() => {
+//     next()
+//   }, 200)
 
-})
+// })
 
 export default router

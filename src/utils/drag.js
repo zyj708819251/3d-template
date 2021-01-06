@@ -10,43 +10,46 @@ import Vue from 'vue';
 //    </div>
 //  </div>
 const zyjdrag = Vue.directive('zyjdrag', //弹出框拖动指令
-  {
-    bind: function(el, binding) {
-      let oDiv = el //当前元素
-      oDiv.onmousedown = function(e) {
-        let parent = e.target.parentNode.parentNode.parentNode;
-        //鼠标按下，计算当前元素距离可视区的距离
-        let disX = e.clientX - parent.offsetLeft
-        let disY = e.clientY - parent.offsetTop
-        document.onmousemove = function(e) {
-          let L = e.clientX - disX
-          let T = e.clientY - disY
-          if (L < 0) {
-            L = 0;
-          } else if (L > document.body.clientWidth - parent.offsetWidth) {
-            L = document.body.clientWidth - parent.offsetWidth;
-          }
+	{
+		bind: function(el, binding) {
+			let oDiv = el; //当前元素
+			let isFullScreen = false; //是否全屏
+			oDiv.onmousedown = function(e) {
+				let parent = e.target.parentNode.parentNode.parentNode;
+				//鼠标按下，计算当前元素距离可视区的距离
+				let disX = e.clientX - parent.offsetLeft
+				let disY = e.clientY - parent.offsetTop
+				document.onmousemove = function(e) {
+					let L = e.clientX - disX
+					let T = e.clientY - disY
+					if (L < 0) {
+						L = 0;
+					} else if (L > document.body.clientWidth - parent.offsetWidth) {
+						L = document.body.clientWidth - parent.offsetWidth;
+					}
 
-          if (T < 0) {
-            T = 0;
-          } else if (T > document.body.clientHeight - parent.offsetHeight) {
-            T = document.body.clientHeight - parent.offsetHeight;
-          }
-          parent.style.left = L + 'px';
-          parent.style.top = T + 'px';
-          parent.style.zIndex='4';
-        }
-        document.onmouseup = function(e) {
-          document.onmousemove = null
-          document.onmouseup = null
-          let dialogs=document.querySelectorAll("div[data-name='zyj-dialog']");
-          dialogs.forEach((v,i)=>{
-            dialogs[i].style.zIndex='3';
-          })
-          parent.style.zIndex='4';
-        }
-      }
-    }
-  }
+					if (T < 0) {
+						T = 0;
+					} else if (T > document.body.clientHeight - parent.offsetHeight) {
+						T = document.body.clientHeight - parent.offsetHeight;
+					}
+					parent.style.left = L < 0 ? 0 : L + 'px';
+					parent.style.top = T < 0 ? 0 : T + 'px';
+					parent.style.zIndex = '4';
+				}
+				document.onmouseup = function(e) {
+					document.onmousemove = null
+					document.onmouseup = null
+					console.log(document.onmouseup)
+					let dialogs = document.querySelectorAll("div[data-name='zyj-dialog']");
+					dialogs.forEach((v, i) => {
+						dialogs[i].style.zIndex = '3';
+					})
+					parent.style.zIndex = '4';
+				}
+				return false
+			}
+		}
+	}
 )
 export default zyjdrag;

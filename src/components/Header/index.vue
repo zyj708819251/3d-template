@@ -59,10 +59,10 @@ export default {
             time: new Date().getTime()
           }
         },
-        () => {},
-        e => {
-          console.log('路由报错');
-        }
+        // () => {},
+        // e => {
+        //   console.log('路由报错');
+        // }
       );
       this.nowNavIndex = index;
     }

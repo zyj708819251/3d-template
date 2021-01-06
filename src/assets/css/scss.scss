@@ -92,13 +92,17 @@ $moduleHeight: 1300px;
 .zyj-dialog-header {
 	cursor: move;
 	position: relative;
+	user-select: none;
+	@include flex;
+	justify-content: space-between;
 	.zyj-dialog-title {
 		color: #ffe0a7;
+		flex: 1;
+		@include s-overflow;
 	}
 	.zyj-dialog-close {
-		position: absolute;
-		right: 0;
-		top: 0;
+		height: 100%;
+		width: auto;
 		cursor: pointer;
 	}
 }

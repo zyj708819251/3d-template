@@ -57,14 +57,14 @@ export default {
       dialogData: {}
     };
   },
-  mounted() {},
   methods: {
     closedialog(e) {
       if (this.options && typeof this.options.closeCallback == 'function') {
         this.options.closeCallback();
       }
       this.zyjDialogFlag = false;
-    }
+    },
+	
   }
 };
 </script>
