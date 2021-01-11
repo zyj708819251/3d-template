@@ -1,11 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 
+
 module.exports = {
 	lintOnSave: false,
-	publicPath: process.env.NODE_ENV === 'production' ?
-		'./' : '/',
-	outputDir: 'template',
+	publicPath: './',
+	outputDir: process.env.NODE_ENV=='test'?'test':'template',
 	configureWebpack: config => {
 		const baseConfig = {
 			devtool: 'source-map',

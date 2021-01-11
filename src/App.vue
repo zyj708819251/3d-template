@@ -35,6 +35,9 @@ export default {
 		});
 		// this.drawMy3d();
 		this.updateRemark(1111);
+		
+		
+		console.log(process.env.NODE_ENV)
 	},
 	methods: {
 		...mapActions('qyh', {
