@@ -19,6 +19,7 @@ const zyjdrag = Vue.directive('zyjdrag', //弹出框拖动指令
 				//鼠标按下，计算当前元素距离可视区的距离
 				let disX = e.clientX - parent.offsetLeft
 				let disY = e.clientY - parent.offsetTop
+
 				document.onmousemove = function(e) {
 					let L = e.clientX - disX
 					let T = e.clientY - disY

@@ -1,19 +1,19 @@
 <template>
   <!--
     打开
-    this.$zyjdialog.subPop({
-      content: hello,
-      id: 'hello',
-      initWidth: 450,
-      initHeight: 450,
-      left: 200,
-      top: 200,
-      options: {
-        closeCallback: this.close
-      },
-      dialogData:{
-        //传值
-      }
+    this.$zyjdialog.openPop({
+    	content: hello,
+    	id: 'hello',
+    	initWidth: 450,
+    	initHeight: 450,
+    	right: 200,
+    	top: 200,
+    	options: {
+    		closeCallback: this.close
+    	},
+    	dialogData: { 
+			//传值
+		}
     });
     关闭
     this.$zyjdialog.closePop('hello');

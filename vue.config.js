@@ -5,7 +5,7 @@ const webpack = require('webpack')
 module.exports = {
 	lintOnSave: false,
 	publicPath: './',
-	outputDir: process.env.NODE_ENV=='test'?'test':'template',
+	outputDir: process.env.NODE_ENV=='test'?'test':'dist',
 	configureWebpack: config => {
 		const baseConfig = {
 			devtool: 'source-map',
@@ -78,5 +78,19 @@ module.exports = {
 		// 		}
 		// 	}
 		// }
+		proxy: {
+			'/weatherApi': {
+				target: '', // target host
+				ws: false, // proxy websockets
+				changeOrigin: true, // needed for virtual hosted sites
+				pathRewrite: {
+					'^/weatherApi': ''
+				},
+				secure: false,
+				headers: {
+				  Referer: 'https://10.108.230.74:8080'
+				}
+			}
+		}
 	},
 }

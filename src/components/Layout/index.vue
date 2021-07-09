@@ -7,8 +7,8 @@
 		<div id="right">
 			<transition name="transitionRight"><router-view name="right" :key="$route.fullPath"></router-view></transition>
 		</div>
-		<div id="bottom"><router-view name="bottom" :key="$route.fullPath"></router-view></div>
-		<div id="top"><router-view name="top" :key="$route.fullPath"></router-view></div>
+		<div id="bottom"><router-view name="bottom"></router-view></div>
+		<div id="top"><router-view name="top"></router-view></div>
 	</div>
 </template>
 

@@ -15,7 +15,8 @@ const routes = [{
         name: 'DJYL',
         components: {
           'left': () => import('@views/DJYL/djyl-left.vue'),
-          'right': () => import('@views/DJYL/djyl-right.vue')
+          'right': () => import('@views/DJYL/djyl-right.vue'),
+          'top': () => import('@views/DJYL/djyl-top.vue')
         }
       },
       {

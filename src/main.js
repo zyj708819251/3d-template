@@ -50,6 +50,8 @@ Vue.prototype.$zyjdialog = dialogMessage.installDialog();
 //拖动
 import zyjdrag from '@utils/drag.js'
 
+import  '@utils/mydrag.js'
+
 //bus
 import bus from '@utils/bus.js';
 Vue.prototype.$bus =bus;
@@ -60,14 +62,13 @@ import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
 
-//生成环境执行全屏
+//生成环境执行全屏(只加在顶部全屏极好)
 // if (process.env.NODE_ENV === 'production') {
 //   window.addEventListener("click", function() {
 //     utils.enterFullScreen();
 //   });
 //   utils.forbidCtrlAndHl();
 // }
-
 
 window.$vue=new Vue({
   router,

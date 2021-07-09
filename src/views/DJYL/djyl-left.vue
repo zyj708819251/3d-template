@@ -9,13 +9,9 @@ export default {
 		return {};
 	},
 	mounted() {
-		console.log('我只触发一次')
-	},
-	activated() {
-		console.log('我每次触发一次')	
-	},
-	deactivated() {
-		
+		this.$bus.$on('changValue', (data) => {
+			console.log(data+'=========');
+		});
 	},
 	methods: {},
 	beforeDestroy() {
@@ -26,5 +22,7 @@ export default {
 
 <style scoped lang="scss">
 .djyl-left {
+	width: 700px;
+	background: #000 !important;
 }
 </style>

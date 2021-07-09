@@ -8,7 +8,7 @@ let components = [];
 export default {
 	installDialog() {
 		return {
-			subPop: this.installSubPop.bind(this),
+			openPop: this.installSubPop.bind(this),
 			closePop: this.closeSubPop.bind(this)
 		}
 	},

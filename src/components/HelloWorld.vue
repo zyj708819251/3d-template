@@ -24,7 +24,7 @@ export default {
 	},
 	created() {},
 	beforeDestroy() {
-		alert(0);
+		alert(this.dialogData.data);
 	}
 };
 </script>
@@ -32,7 +32,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .hello {
-	background: rgba(255, 0, 0, 0.2);
+	background: rgba(255, 0, 0, 1);
 	overflow: auto;
 }
 </style>

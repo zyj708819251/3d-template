@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<router-view />
+		<router-view  />
 		<!-- 渲染三维div -->
-		<div id="my3d"></div>
+		<!-- <div id="my3d"></div> -->
 	</div>
 </template>
 <script>
@@ -21,18 +21,32 @@ export default {
 		})
 	},
 	mounted() {
-		this.$zyjdialog.subPop({
-			content: hello,
-			id: 'hello',
-			initWidth: 450,
-			initHeight: 450,
-			left: 200,
-			top: 200,
-			options: {
-				closeCallback: this.close
-			},
-			dialogData: { key: '你好', data: '111' }
-		});
+		// this.$zyjdialog.openPop({
+		// 	content: hello,
+		// 	id: 'hello',
+		// 	initWidth: 450,
+		// 	initHeight: 450,
+		// 	right: 200,
+		// 	top: 200,
+		// 	options: {
+		// 		closeCallback: this.close
+		// 	},
+		// 	dialogData: { key: '你好', data: '111' }
+		// });
+		
+		// this.$zyjdialog.openPop({
+		// 	content: hello,
+		// 	id: 'hello1',
+		// 	initWidth: 200,
+		// 	initHeight: 200,
+		// 	left: 200,
+		// 	bottom: 200,
+		// 	options: {
+		// 		closeCallback: this.close
+		// 	},
+		// 	dialogData: { key: '你好', data: '222' }
+		// });
+		
 		// this.drawMy3d();
 		this.updateRemark(1111);
 		
