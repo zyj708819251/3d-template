@@ -4,15 +4,9 @@ import router from './router'
 import store from './store'
 
 
-var basePath = (window.location + '').split('/')[0] + '//' + (window.location + '').split('/')[2] + '/' + (window.location +
-  '').split('/')[3];
-var rootPath = window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1' ?
-  'https://10.128.181.16:82/' : (window.location +
-    '').split('/')[0] + '//' + (window.location + '').split('/')[2] + '/';
-window.rootUrl = rootPath;
-window.rootUrl1 = 'http://' + window.location.hostname + ':' + 83;
-Vue.prototype.$rootUrl = window.rootUrl;
-Vue.prototype.$rootUrl1 = window.rootUrl1;
+window.$rootUrl = window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1' ?
+  'https://10.128.181.16:82/' : window.origin+'/';
+Vue.prototype.$rootUrl = window.$rootUrl;
 
 //重置样式
 import '@assets/css/reset.css'
@@ -39,9 +33,9 @@ import utils from '@utils/utils.js'
 Vue.prototype.$utils = utils
 
 //引入回调JS
-import {callbackService} from '@utils/callbackService'
-Vue.prototype.$callOldService = callbackService;
-window.$public = callbackService;
+import publicJs from '@utils/publicJs'
+Vue.prototype.$public = publicJs;
+window.$public = publicJs;
 
 //弹框
 import dialogMessage from '@com/Dialog/Dialog.js';
@@ -49,7 +43,6 @@ Vue.prototype.$zyjdialog = dialogMessage.installDialog();
 
 //拖动
 import zyjdrag from '@utils/drag.js'
-
 import  '@utils/mydrag.js'
 
 //bus
@@ -61,14 +54,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
-
-//生成环境执行全屏(只加在顶部全屏极好)
-// if (process.env.NODE_ENV === 'production') {
-//   window.addEventListener("click", function() {
-//     utils.enterFullScreen();
-//   });
-//   utils.forbidCtrlAndHl();
-// }
 
 window.$vue=new Vue({
   router,

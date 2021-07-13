@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<p>首页</p>
+		<p @click="show">首页</p>
 		<myswiper></myswiper>
 		<numberCount class="text" :height="100" :value="n" :interval="2000" :loop="true"></numberCount>
 		<listScroll :listOption="option" :listData="list">
@@ -15,7 +15,7 @@
 import myswiper from '@com/Swiper';
 import numberCount from '@com/Number';
 import listScroll from '@com/ListScroll';
-
+import pop from '@views/Home/pops/index'
 export default {
 	name: 'home',
 	components: {
@@ -34,8 +34,25 @@ export default {
 			}
 		};
 	},
-	mounted() {},
-	methods: {},
+	mounted() {
+		
+	},
+	methods: {
+		show(){
+			this.$zyjdialog.openPop({
+				content: pop,
+				id: 'pop',
+				initWidth: 200,
+				initHeight: 200,
+				left: 200,
+				bottom: 200,
+				options: {
+					closeCallback: this.close
+				},
+				dialogData: { key: '你好', data: '222' }
+			});
+		}
+	},
 	beforeDestroy() {}
 };
 </script>
